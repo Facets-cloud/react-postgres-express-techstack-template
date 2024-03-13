@@ -23,6 +23,7 @@ This project was bootstrapped with [GraphQL Starter Kit](https://github.com/kria
 
 `├──`[`.github`](.github) — GitHub configuration including CI/CD workflows.<br>
 `├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>
+`├──`[`.blueprint`](./blueprint) — Blueprint and resources related to the blueprint which can be used while deploying on facets control plane<br>
 `├──`[`code`](./code) — front-end application ([Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), [React](https://reactjs.org/)), Backend Application([PostgreSQL](https://www.postgresql.org/), [ExpressJs](https://expressjs.com/).<br>
 `└── ...` — add more packages such as `worker`, `admin`, `mobile`, etc.
 
