@@ -1,0 +1,40 @@
+{
+    "kind": "ingress",
+    "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/loadbalancer/ingress.schema.json",
+    "flavor": "aws_alb",
+    "disabled": true,
+    "version": "0.2",
+    "lifecycle": "ENVIRONMENT",
+    "provided": false,
+    "depends_on": [],
+    "metadata": {
+      "name": "ingress-aws_alb",
+      "annotations": {}
+    },
+    "spec": {
+      "private": false,
+      "basic_auth": false,
+      "grpc": false,
+      "domains": {},
+      "rules": {
+        "expressApp": {
+          "service_name": "${service.express-backend.out.interfaces.http.name}",
+          "path": "/",
+          "port": "${service.express-backend.out.interfaces.http.port}",
+          "domain_prefix": "be",
+          "annotations": {
+            "app": ""
+          },
+          "disable_auth": false
+        },
+        "frontend": {
+          "comment": "front-end",
+          "domain_prefix": "fe",
+          "path": "/",
+          "port": "${service.react-frontend.out.interfaces.http.port}",
+          "service_name": "${service.react-frontend.out.interfaces.http.name}"
+        }
+      },
+      "force_ssl_redirection": true
+    }
+  }
