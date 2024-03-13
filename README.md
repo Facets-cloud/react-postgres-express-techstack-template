@@ -14,9 +14,6 @@ High-performance GraphQL API server, database dev tools, and React front-end.
 - Authentication and authorization powered by [Google Identity Platform](https://cloud.google.com/identity-platform).
 - Database tooling — seed files, migrations, [Knex.js](https://knexjs.org/) REPL shell, etc.
 - Front-end boilerplate pre-configured with [TypeScript](https://www.typescriptlang.org/), [Vite](https://vitejs.dev/), [React](https://beta.reactjs.org/).
-- The ongoing design and development is supported by these wonderful companies:
-
-<a href="https://reactstarter.com/s/1"><img src="https://reactstarter.com/s/1.png" height="60" /></a>&nbsp;&nbsp;<a href="https://reactstarter.com/s/2"><img src="https://reactstarter.com/s/2.png" height="60" /></a>&nbsp;&nbsp;<a href="https://reactstarter.com/s/3"><img src="https://reactstarter.com/s/3.png" height="60" /></a>
 
 ---
 
