@@ -2,7 +2,7 @@
   React, Postgres and Express techstack template
   <br>
   <a href="http://www.typescriptlang.org/"><img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg?style=flat-square" height="20"></a>
-  <a href="https://github.com/kriasoft/react-postgres-express-techstack-template/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/react-postgres-express-techstack-template.svg?style=social&label=Star&maxAge=3600" height="20"></a>
+  <a href="https://github.com/Facets-cloud/react-postgres-express-techstack-template/stargazers"><img src="https://img.shields.io/github/stars/Facets-cloud/react-postgres-express-techstack-template.svg?style=social&label=Star&maxAge=3600" height="20"></a>
 </h1>
 
 High-performance GraphQL API server, database dev tools, and React front-end.
