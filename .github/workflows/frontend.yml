@@ -1,0 +1,46 @@
+name: Build /code/server
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'react-postgres-express-techstack-template/code/react-frontend/**'
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup NodeJS
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18.17.1
+
+    - name: Install @facets-cloud/facetsctl
+      run: |
+        echo "Installing @facets-cloud/facetsctl"
+        npm install -g @facets-cloud/facetsctl
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Docker build
+      run: |
+        cd react-postgres-express-techstack-templates/app-code/server/
+        TAG_NAME=$(echo $GITHUB_REF | awk -F/ '{print $3}')
+        echo "Building Docker Image"
+        docker build -t $SERVICE_NAME:${TAG_NAME}_${GITHUB_RUN_ID} .
+
+    - name: Login to facetsctl
+        run: facetsctl login -u <userName> -t <token> -c https://facetsdemo.console.facets.cloud    
+
+    - name: Push Docker Image
+      run: |
+        TAG_NAME=$(echo $GITHUB_REF | awk -F/ '{print $3}')
+        echo "Logging into Facets Cloud: $EMAIL - $TAG_NAME"
+        # facetsctl login -u $EMAIL -t $TOKEN -c $CP_URL
+        echo "Using release stream $RELEASE_STREAM"
+        echo "Pushing Docker Image"
+        facetsctl push --docker-image $SERVICE_NAME:${TAG_NAME}_${GITHUB_RUN_ID} --artifact-name $SERVICE_NAME --registration-type CLUSTER --registration-value 65dfece930bfd70007e7a0f0 --external-id $GITHUB_RUN_ID --artifactory facets-config-auto
+   
